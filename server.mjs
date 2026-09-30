@@ -36,36 +36,7 @@ app.use((err, req, res, next) => {
     message: err.message 
   });
 });
-const oauth2Client = new google.auth.OAuth2(
-  process.env.DRIVE_CLIENT_ID,
-  process.env.DRIVE_CLIENT_SECRET,
-  'https://developers.google.com/oauthplayground' 
-);
 
-oauth2Client.setCredentials({
-  refresh_token: process.env.DRIVE_REFRESH_TOKEN
-});
-
-const drive = google.drive({ version: 'v3', auth: oauth2Client });
-/*var readverify =  await fs.readFile('./verify.json', (err, data)=>{
-    if(err) throw err;
-    console.log(err)})
-
-const userData = JSON.parse(readverify)
-
-for(let user in userData){
-   userData[user] = await bcrypt.hash(userData[user], 10)
-}
-
-const data = JSON.stringify(userData)
-   
-fs.writeFile('./verify.json', data, (err)=>{
-    if (err) throw err;
-    console.log(err)
-    })
-
-console.log(userData) 
-*/
 app.set('view engine', 'ejs');
 
 app.use(express.json({ limit: '50mb' }));
