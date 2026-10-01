@@ -17,8 +17,27 @@
 </div>
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;">
         <h1 style="position: absolute; top: 0; font-size: 2.8vw;">Gallery of Prompt Prowess</h1>
-    <section style="height: 100vh; background-image: url(bbb.svg); width: 100%; background-repeat: no-repeat; background-size: cover;" class="P-con">
+    <section style="background-image: url(bbb.svg); width: 100%; background-repeat: no-repeat; background-size: cover; padding-top: 10rem;" class="P-con" id="p-can">
         
+<a class="P-card">
+        <img src="blurry-gradient-haikei (1).svg" style="width: 100%;">
+        <h2>Sample Project</h2>
+        <p>By: Person</p>
+</a>
+<a class="P-card">
+        <img src="blurry-gradient-haikei (1).svg" style="width: 100%;">
+        <h2>Sample Project</h2>
+        <p>By: Person</p>
+</a>
+<a class="P-card">
+        <img src="blurry-gradient-haikei (1).svg" style="width: 100%;">
+        <h2>Sample Project</h2>
+        <p>By: Person</p>
+       
+
+            
+            
+</a>
 <a class="P-card">
         <img src="blurry-gradient-haikei (1).svg" style="width: 100%;">
         <h2>Sample Project</h2>
@@ -64,8 +83,128 @@ try{
     catch(err){
 
     }}
+
+    
 )
 
+async function getProjects() {
+    try {
+       const posts = await fetch("/board")
+       const txt = await posts.json()
+       const info = JSON.parse(txt)
+       console.log(info + " information")
 
+       for(post of info){
+        console.log(post)
+        let text = post.user
+                const fullPost = document.createElement('div');
+                fullPost.className = "P-card";
+           const postType = document.createElement('span');
+                const postTitle = document.createElement('h2');
+                let title = post.title;
+                if (title.length > 40){
+                    title = title.substring(0, 40) + "...";
+                }
+                postTitle.textContent = title;
+
+                const postText = document.createElement('p');
+
+                const postlink = document.createElement('a');
+                postlink.href = post.link
+                postText.textContent = "Creator: " + post.username;
+                postlink.textContent = "Atlantis Link: " + post.link;
+                const postImg = document.createElement('img');
+                if(post.cover != "N/A"){
+                  postImg.setAttribute('src', post.image);
+                }
+                else{
+                    postImg.setAttribute('src', "blurry-gradient-haikei (1).svg");
+                }
+                
+                fullPost.appendChild(postImg);
+                fullPost.appendChild(postTitle);
+                fullPost.appendChild(postText);
+                fullPost.appendChild(postlink);
+                fullPost.insertAdjacentHTML('beforeend', `        <div style="width: 100%; display: flex; flex-direction: column;"> <h3 style="font-size: 1.3vw;">Vote!</h3>
+            <div style="display: flex; flex-direction: row; justify-content: space-around;  align-items: center; " id="looks-rate">
+            <h3 style="font-size: .8vw">Looks</h3>
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+</div>
+            
+    
+    <div style="display: flex; flex-direction: row; justify-content: space-around;  align-items: center;" id="print-rate"> 
+    <h3 style="font-size: .8vw">Printability</h3>
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem" style="background-color: aqua;">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+     </div>
+           
+    <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center;" id="cool-rate">
+    <h3 style="font-size: .8vw">Coolness</h3>
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" style="background-color: aqua;" height="60rem" >
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem"></div>
+
+<button style="padding: 2rem; background-color: rgb(7, 62, 99); color: aliceblue; font-size:1vw">Submit</button>
+            </div>
+            </div>`)
+                document.getElementById('p-can').appendChild(fullPost);}
+}
+ 
+    
+    
+    catch (error) {
+        console.log(error)
+    }
+}
+    
+getProjects()
+
+
+
+function screwsLoose(which, number){
+let pVote
+let cVote
+let lVote
+
+if(which === l){
+const looks = document.getElementById("looks-rate")
+const imgs = looks.children
+for(let i; i<= number; i++){
+    imgs.array.forEach(img => {
+        img.style.backgroundColor = "aqua"
+    });
+}
+lVote = number
+}
+if(which === p){
+const looks = document.getElementById("looks-rate")
+const imgs = looks.children
+for(let i; i<= number; i++){
+    imgs.array.forEach(img => {
+        img.style.backgroundColor = "aqua"
+    });
+}
+}
+if(which === c){
+const looks = document.getElementById("looks-rate")
+const imgs = looks.children
+for(let i; i<= number; i++){
+    imgs.array.forEach(img => {
+        img.style.backgroundColor = "aqua"
+    });
+}
+}
+const print = document.getElementById("print-rate")
+const cool = document.getElementById("cool-rate")
+}
 </script>
 </html>

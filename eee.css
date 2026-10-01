@@ -42,12 +42,14 @@ h1 {
 p{
     text-align: center;
     font-family: Montserrat, Arial, Helvetica, sans-serif;
-    font-size: 1.2rem;
+    font-size: 1vw;
     
     
 }
 a{
     letter-spacing: .1rem;
+    margin-top: 0;
+    font-size: 1vw;
 }
 h4{
  color:white; font-size: 2rem; margin-top: .7em;
@@ -78,5 +80,11 @@ h4{
     align-items: center;
     margin-bottom: 8em;
     margin-top: 2em;
-    height: 30rem;
+    min-height: 30rem;
+ }
+ 
+      .P-card img {
+
+    max-height: 50%;
+    max-width: 98%;
  }

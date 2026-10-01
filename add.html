@@ -19,9 +19,46 @@
     
     <section style="height: 100vh; background-image: url(bbb.svg); width: 100%; background-repeat: no-repeat; background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;" class="P-con">
 
- <input id="user" type="text" placeholder="What's the topic for this week lovely???" class="inp" required style="width: 80%;">
+ <input id="prompt" type="text" placeholder="What's the topic for this week lovely???" class="inp" required style="width: 80%;">
+ <button id="psend">Set Prompt</button>
     </section>
         
     </div>
 </body>
+<script>
+  document.getElementById("psend").addEventListener('click', async (e)=>{
+e.preventDefault()
+try {
+      const prompt = document.getElementById("prompt").value
+  const response = await fetch("/prompts", {
+  method: "POST",
+  body: JSON.stringify({prompt}),
+  headers: {'Content-Type': 'application/json'},
+}
+)
+} catch (error) {
+    console.log(error)
+}
+
+  })
+
+    async function getaaa() {
+           let vee
+        const res = await fetch('/bo')
+        const key = await res.text()
+        console.log(key)
+            while(!vee){
+        const hp = prompt("What's the secret secret code?")
+        if(hp === key){
+           vee = true
+        }
+        else{
+            vee = false
+        }
+    }
+    }
+
+getaaa()
+
+</script>
 </html>

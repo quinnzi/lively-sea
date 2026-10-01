@@ -67,8 +67,11 @@ sameSite: 'lax',
 
 const {data, error} =
 
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/home.html');
+app.get('/', async (req, res) => {
+   const p = await supabase.from('prompts').select("name").eq("chosen", "yes")
+   const del = await p.data
+   console.log(del[0].name)
+    res.render('home', {prompt: del[0].name})
 })
 
 app.get('/gallery', async (req, res) => {
@@ -94,10 +97,19 @@ res.sendFile(__dirname + '/leaderboard.html')
 
 })
 
-app.get('/leaderboard', async (req, res) => {
-
+app.get('/board', async (req, res) => {
+const datz = (await supabase.from('Projects').select('*')).data
+console.log(datz)
+res.json(JSON.stringify(datz))
 
 })
+
+app.get('/bo', async (req, res) => {
+
+res.send("blessTheSingingTorpedoes")
+
+})
+
 app.post('/col', upload.single('P-image'), async (req, res) =>
 {
     try{
@@ -119,6 +131,18 @@ catch(err){
     console.log(err)
 }
 })
+
+app.post('/prompts', async (req, res) =>
+{
+const z = await supabase.from('prompts').update({chosen: "no"}).eq("chosen", "yes")
+const promptz = await supabase.from('prompts').insert([{ name: req.body.prompt, chosen: "yes"}])
+
+
+res.send("Success!!")
+
+
+})
+
 
 app.listen(3002, (err, next)=>{
     if(err){console.log(err)}
