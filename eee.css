@@ -22,6 +22,7 @@ h2{
     body {
     line-height: 1.6; 
 
+ width: 100vw;
 
     color: #333;
     background-color: #f7f7f7;
@@ -88,3 +89,58 @@ h4{
     max-height: 50%;
     max-width: 98%;
  }
+
+ @keyframes swimming {
+    0%{    top:85vh; 
+     left:1.78vw;}
+     20%{    
+        top:82vh; 
+     left:11vw; }
+      40%{
+            top:95vh; 
+     left:40vw;
+      }
+       60%{    top:89vh; 
+
+     left:60vw;}
+     70%{    top:95vh; 
+
+     left:70vw;}
+        80%{    top:84vh; 
+     left:80vw;}
+        100%{    top:99vh; 
+     left:100vw; display: none;}
+ }
+
+ @keyframes fade {
+   0%{
+   color: rgba(19, 19, 19, 0);
+    
+   }
+   90%{
+    color: rgba(19, 19, 19, 0.7);
+   }
+      100%{
+    color: rgba(19, 19, 19, 0.788);
+   }
+ }
+
+  @keyframes fade2 {
+
+  0% { opacity: 0; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+ }
+ #guy{
+    position: absolute; 
+    z-index: 0;
+    animation: swimming 15s infinite linear;
+ }
+#intro{
+    font-size: 5rem; margin-top: 8rem; color: rgba(19, 19, 19, 0.7); margin-bottom: 5rem;
+    animation: fade 1s ease-in-out ;
+}
+#tit{
+    font-family: Monoton; font-size: 8vw; margin-top: 0; border: none; color: rgb(28, 37, 61); margin: 0; padding: 0;
+    animation: fade2 2s ease-in-out;
+}

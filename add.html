@@ -11,7 +11,7 @@
 </head>
 <body>
     <div style="background-color: rgba(0, 29, 92, 0.815); width: 15%; display: flex; flex-direction: row; position: absolute; right: 0; z-index: 3; top: 0; font-size: .5vw; padding: .2rem; justify-content: space-evenly; border-radius: 10px;">
-    <a href="home.html"><h4 style="font-size: 1vw;">Home</h4></a>
+    <a href="/"><h4 style="font-size: 1vw;">Home</h4></a>
     <a href="gallery.html"><h4 style="font-size: 1vw;">Donezers</h4></a>
      <a href="add.html"><h4 style="font-size: 1vw;">Add</h4></a>
 </div>
@@ -31,7 +31,8 @@
 e.preventDefault()
 try {
 
-    const d = new Date(document.getElementById("date").value)
+    const d = new Date(document.getElementById("date").value + "T23:59:59")
+
     const dae = d.getTime() / 1000
       const prompt = document.getElementById("prompt").value
   const response = await fetch("/prompts", {

@@ -10,31 +10,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Chango&family=Libertinus+Keyboard&family=Monoton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body><div style="background-color: rgba(0, 29, 92, 0.815); width: 15%; display: flex; flex-direction: row; position: absolute; right: 0; z-index: 3; top: 0; font-size: .5vw; padding: .2rem; justify-content: space-evenly; border-radius: 10px;">
-    <a href="home.html"><h4 style="font-size: 1vw;">Home</h4></a>
+    <a href="/"><h4 style="font-size: 1vw;">Home</h4></a>
     <a href="gallery.html"><h4 style="font-size: 1vw;">Donezers</h4></a>
      <a href="add.html"><h4 style="font-size: 1vw;">Add</h4></a>
 </div>
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;">
-        <img src="New Project.png" width="105rem" style="position: absolute; top:90%; z-index: 0;">
+        <img src="New Project.png" width="105rem" id="guy">
     <section style="height: 100vh; background-image: url(bbb.svg); width: 100%; background-repeat: no-repeat; background-size: cover;">
         <div style="height: 60vh;">
-            <h1 style="font-size: 5rem; margin-top: 8rem; color: rgba(19, 19, 19, 0.7); margin-bottom: 5rem;">Welcome to....</h1>
-            <h2 style="font-family: Monoton; font-size: 8vw; margin-top: 0; border: none; color: rgb(28, 37, 61); margin: 0; padding: 0;">The Great Atlantis Competition!</h2>
+            <h1 id="intro">Welcome to....</h1>
+            <h2 id="tit">The Great Atlantis Competition!</h2>
         </div>
         <img src="R.png" width="100%">
     </section>
         <section style="background-image: url(stacked-waves-haikei\ \(1\).svg); width: 100%; background-repeat: no-repeat; background-size: cover;align-self: center; display: flex; flex-direction: column; justify-content: center; align-items: center; ">
-        <div style="min-height: 10rem; width: 60%; background-color: aliceblue; display: flex; flex-direction: column; align-self: center; border-radius: 20px; margin-bottom: 15rem;">
+        <div style="min-height: 10rem; width: 60%; background-color: aliceblue; display: flex; flex-direction: column; align-self: center; border-radius: 20px; margin-bottom: 15rem; position: relative; z-index: 15;">
             <h2>What is this??</h2>
-            <p style="margin: 2rem;">This is for the poor directionless creatures, such as myself, participating in the lovely ysws known as atlantis. 
-                Each (4 days?) a wheel is spun by tutkuw in #the_great_atlantis_competition channel and a prompt is chosen from that wheel. 
+            <p style="margin: 2rem;">This is for the poor directionless creatures, such as myself, participating in the lovely ysws known as <a href="https://atlantis.hackclub.com">Atlantis!</a>. 
+                Each (4 days?) a wheel is spun by tutkuw in <a href="">#the_great_atlantis_competition channel</a> and a prompt is chosen from that wheel. 
                 After it is chosen it will magically appear on this site and you can check for it anytime! 
                 Atlantis is an entire 8 weeks long & in that 8 weeks our well of ideas may run dry. 
                 So when they do, you can come here and compete with others to make the best version of a relatively simple thing so your boat doesn't sink! Have fun!! Explore Donezers!! </p>
 
            
         </div>
-                <div style="min-height: 10rem; width: 60%; background-color: aliceblue; display: flex; flex-direction: column; align-self: center; border-radius: 20px; margin-bottom: 15rem;">
+                <div style="min-height: 10rem; width: 60%; background-color: aliceblue; display: flex; flex-direction: column; align-self: center; border-radius: 20px; margin-bottom: 15rem; position: relative; z-index: 15;"">
 
             <h1 style="padding: 2rem; background-color: rgb(3, 3, 71); color: rgba(255, 255, 255, 0.959); margin: 0; border-top-left-radius: 20px; border-top-right-radius: 20px; font-size: 3rem; text-align: center;" >Current Prompt</h1>
             <h1 style="min-height: 15rem; padding-top: 3rem; background-color: aliceblue; margin-top: 0;"> <%= prompt %> </h1>
@@ -42,49 +42,74 @@
         <div style="display: flex; flex-direction: column; width: 100%; min-height: 40vh; position: relative; bottom: 0; background-color: rgba(240, 248, 255, 0.384); padding-bottom: 3rem; ">
             <h2 style="border: none; font-size: 4rem; margin-top: 3rem; margin-bottom: 0;">Hurry up, hurry up! You only have:</h2>
             <div style="min-height: 10rem; width: 100%;  border-radius: 20px; display: flex;flex-direction: row; align-self: center; text-align: center; align-items: center; justify-content: center; padding: 3rem; position: relative;">
-            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove; margin: 0;">09</h1>
+            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove; margin: 0;" id="dys">09</h1>
             <h1 style="font-size: 6rem;">:</h1>
-            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove;">10</h1>
+            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove;" id="hrs">10</h1>
             <h1 style="font-size: 6rem;">:</h1>
-            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove;">26</h1>
+            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove;" id="min">26</h1>
             <h1 style="font-size: 6rem;">:</h1>
-            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove;">05</h1>
+            <h1 style="height: 13rem; background-color: rgb(215, 248, 250); font-size: 6rem; padding: 2rem; border: rgb(0, 8, 14) 9px groove;" id="sec">05</h1>
         </div>
         </div>
     </section>
     </div>
 </body>
 <script>
-async function getTIme(){
-const timeObj = await fetch('/time')
-const time = await timeObj.text()
+      let time
+    async function getValues() {
+      
+        try {
+            const timeObj = await fetch('/time')
+const t = await timeObj.text()
+time = t
 
-let seconds
-const timeBase = time - Til
+        } catch (error) {
+            console.log(error)
+        }
+        
+    }
+if(true){
+getValues()
+
+console.log("time:" + time)
+console.log("time:" + time)
+}
+
+const countDown = setInterval(async function getTime(){
+
+let til = Math.floor(Date.now() / 1000)
+
+
+const timeBase = (time - til)
+console.log("tile" + til)
+console.log(timeBase)
 let days = Math.trunc(timeBase/86400)
-const seconds = Math.floor(Date.now().getTime()/ 1000)
-let minutes = Math.trunc((timeBase % 3600)/60)
-let hours = Math.trunc(timeBase % 86400 /3600)
+let seconds = timeBase % 60
+let minutes = Math.floor((timeBase % 3600)/60)
+let hours = Math.floor(timeBase % 86400 /3600)
 
-
+console.log(minutes + hours + seconds + days)
 if (days < 10){
 days = "0" + days
 }
 
 if (hours < 10){
-days = "0" + hours
+hours = "0" + hours
 }
 
 if (minutes < 10){
-days = "0" + minutes
+minutes = "0" + minutes
 }
 
 if (seconds < 10){
-days = "0" + seconds
+seconds = "0" + seconds
 }
 
-}
-const countDown = setInterval(getTime())
+document.getElementById('dys').textContent = days
+document.getElementById('hrs').textContent = hours
+document.getElementById('min').textContent = minutes
+document.getElementById('sec').textContent = seconds
+}, 1000)
 
 </script>
 </html>

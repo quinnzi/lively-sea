@@ -65,7 +65,7 @@ sameSite: 'lax',
   secure: false
 }));
 
-const {data, error} =
+
 
 app.get('/', async (req, res) => {
    const p = await supabase.from('prompts').select("name").eq("chosen", "yes")
@@ -104,6 +104,15 @@ res.json(JSON.stringify(datz))
 
 })
 
+app.get('/time', async (req, res) => {
+   const d = await supabase.from('prompts').select("date").eq("chosen", "yes")
+   const pel = d.data
+
+   console.log(pel[0].date)
+    res.send(pel[0].date)
+
+})
+
 app.get('/bo', async (req, res) => {
 
 res.send("blessTheSingingTorpedoes")
@@ -135,7 +144,7 @@ catch(err){
 app.post('/prompts', async (req, res) =>
 {
 const z = await supabase.from('prompts').update({chosen: "no"}).eq("chosen", "yes")
-const promptz = await supabase.from('prompts').insert([{ name: req.body.prompt, chosen: "yes"}])
+const promptz = await supabase.from('prompts').insert([{ name: req.body.prompt, chosen: "yes", date: req.body.dae}])
 
 
 res.send("Success!!")
