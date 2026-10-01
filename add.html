@@ -20,7 +20,8 @@
     <section style="height: 100vh; background-image: url(bbb.svg); width: 100%; background-repeat: no-repeat; background-size: cover; display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;" class="P-con">
 
  <input id="prompt" type="text" placeholder="What's the topic for this week lovely???" class="inp" required style="width: 80%;">
- <button id="psend">Set Prompt</button>
+ <input type="date" id="date">
+        <button id="psend">Set Prompt</button>
     </section>
         
     </div>
@@ -29,10 +30,13 @@
   document.getElementById("psend").addEventListener('click', async (e)=>{
 e.preventDefault()
 try {
+
+    const d = new Date(document.getElementById("date").value)
+    const dae = d.getTime() / 1000
       const prompt = document.getElementById("prompt").value
   const response = await fetch("/prompts", {
   method: "POST",
-  body: JSON.stringify({prompt}),
+  body: JSON.stringify({prompt, dae}),
   headers: {'Content-Type': 'application/json'},
 }
 )
