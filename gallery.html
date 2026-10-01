@@ -10,6 +10,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Inline&family=Chango&family=Libertinus+Keyboard&family=Monoton&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div style="background-color: rgba(0, 29, 92, 0.815); width: 15%; display: flex; flex-direction: row; position: absolute; right: 0; z-index: 3; top: 0; font-size: .5vw; padding: .2rem; justify-content: space-evenly; border-radius: 10px;">
+    <a href="home.html"><h4 style="font-size: 1vw;">Home</h4></a>
+    <a href="gallery.html"><h4 style="font-size: 1vw;">Donezers</h4></a>
+     <a href="add.html"><h4 style="font-size: 1vw;">Add</h4></a>
+</div>
     <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; width: 100%;">
         <h1 style="position: absolute; top: 0; font-size: 2.8vw;">Gallery of Prompt Prowess</h1>
     <section style="height: 100vh; background-image: url(bbb.svg); width: 100%; background-repeat: no-repeat; background-size: cover;" class="P-con">
@@ -24,17 +29,43 @@
         <div style="position: relative;  min-height: 100vh; background-image:url(Cloudbb.svg); background-size:90%; background-repeat: no-repeat; width: 100%; display: flex; flex-direction: column; align-self: center; align-items: center; justify-content: center; padding-left: 1rem;">
             <div style="position: absolute; top: 30%; width: inherit; height: inherit; left: 10%; bottom: 12rem;">
                 <h2 style="align-self: self-start; text-align: center; width: 40%; margin-left: 9rem; font-size: 1.5vw; margin-bottom: 0;">Want to share your project and join the great great gallery?</h2>
-            <form style=" width:40%;  display: flex; flex-direction: column; align-self: self-start; border-radius: 20px; margin: 9rem; margin-top: 0; height: 40%;">
-            <input id="title" type="text" placeholder="Project Title" class="inp" required>
-            <input id="user" type="text" placeholder="Your Username" class="inp" required>
-            <input id="link" placeholder="Put the link to your project on Atlantis here!" class="inp" type="text" required>
+            <form style=" width:40%;  display: flex; flex-direction: column; align-self: self-start; border-radius: 20px; margin: 9rem; margin-top: 0; height: 40%;" id="con">
+            <input id="title" type="text" placeholder="Project Title" class="inp" required name="title">
+            <input id="user" type="text" placeholder="Your Username" class="inp" required name="user">
+            <input id="link" placeholder="Put the link to your project on Atlantis here!" class="inp" type="text" required name="link">
             <label>Wanna add a photo of your project to tempt others to click on it? Add it here!</label>
-            <input type="file" id="PI">
-<button type="submit" style="padding: 1rem; background-color: rgb(0, 97, 136); color: whitesmoke; font-family: rubik, Arial, Helvetica, sans-serif; font-size: 1vw;">Submit!</button>
+            <input type="file" id="PI" name="P-image">
+<button type="submit" style="padding: 1rem; background-color: rgb(0, 97, 136); color: whitesmoke; font-family: rubik, Arial, Helvetica, sans-serif; font-size: 1vw;" id="subi">Submit!</button>
         </form>
         </div>
         </div>
     </section>
     </div>
 </body>
+<script>
+    document.getElementById("subi").addEventListener('click', async function submitProject(e) {
+        e.preventDefault()
+        const form = document.getElementById("con")
+        const data = new FormData(form)
+try{
+       const result = await fetch("/col", {
+            method: "POST", 
+            body: data
+        })
+
+        if(!result.ok){
+           const re = await result.text()
+            alert(re)
+        }
+        else{
+            window.location.href = "/gallery.html"
+        }
+    }
+    catch(err){
+
+    }}
+)
+
+
+</script>
 </html>
