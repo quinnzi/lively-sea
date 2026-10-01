@@ -54,4 +54,37 @@
     </section>
     </div>
 </body>
+<script>
+async function getTIme(){
+const timeObj = await fetch('/time')
+const time = await timeObj.text()
+
+let seconds
+const timeBase = time - Til
+let days = Math.trunc(timeBase/86400)
+const seconds = Math.floor(Date.now().getTime()/ 1000)
+let minutes = Math.trunc((timeBase % 3600)/60)
+let hours = Math.trunc(timeBase % 86400 /3600)
+
+
+if (days < 10){
+days = "0" + days
+}
+
+if (hours < 10){
+days = "0" + hours
+}
+
+if (minutes < 10){
+days = "0" + minutes
+}
+
+if (seconds < 10){
+days = "0" + seconds
+}
+
+}
+const countDown = setInterval(getTime())
+
+</script>
 </html>
