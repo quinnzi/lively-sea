@@ -128,32 +128,32 @@ async function getProjects() {
                 fullPost.insertAdjacentHTML('beforeend', `        <div style="width: 100%; display: flex; flex-direction: column;"> <h3 style="font-size: 1.3vw;">Vote!</h3>
             <div style="display: flex; flex-direction: row; justify-content: space-around;  align-items: center; " id="looks-rate">
             <h3 style="font-size: .8vw">Looks</h3>
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('l', 1)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('l', 2)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('l', 3)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('l', 4)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('l', 5)">
 </div>
             
     
     <div style="display: flex; flex-direction: row; justify-content: space-around;  align-items: center;" id="print-rate"> 
     <h3 style="font-size: .8vw">Printability</h3>
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem" style="background-color: aqua;">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('p', 1)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('p', 2)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('p', 3)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('p', 4)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('p', 5)">
      </div>
            
     <div style="display: flex; flex-direction: row; justify-content: space-around; align-items: center;" id="cool-rate">
     <h3 style="font-size: .8vw">Coolness</h3>
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" style="background-color: aqua;" height="60rem" >
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem">
-    <img src="Loop Water Sticker by Omamstore.gif" width="60rem" height="60rem"></div>
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose(c', 1)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('c', 2)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('c', 3)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('c', 4)">
+    <img src="Loop Water Sticker by Omamstore.gif" width="50rem" height="50rem" onclick="screwsLoose('c', 5)"></div>
 
-<button style="padding: 2rem; background-color: rgb(7, 62, 99); color: aliceblue; font-size:1vw">Submit</button>
+<button style="padding: 2rem; background-color: rgb(7, 62, 99); color: aliceblue; font-size:1vw" id="vote">Submit</button>
             </div>
             </div>`)
                 document.getElementById('p-can').appendChild(fullPost);}
@@ -168,43 +168,79 @@ async function getProjects() {
     
 getProjects()
 
-
-
 function screwsLoose(which, number){
 let pVote
 let cVote
 let lVote
 
-if(which === l){
+if(which === "l"){
 const looks = document.getElementById("looks-rate")
-const imgs = looks.children
-for(let i; i<= number; i++){
-    imgs.array.forEach(img => {
-        img.style.backgroundColor = "aqua"
-    });
+const im = looks.getElementsByTagName('img')
+const imgs = Array.from(im)
+imgs.forEach((el)=>
+{
+    el.style.backgroundColor = "none"
+})
+for(let i = 1; i<= number; i++){
+ imgs[i - 1].style.backgroundColor = "rgba(111, 201, 253, 0.815)"
 }
 lVote = number
 }
-if(which === p){
-const looks = document.getElementById("looks-rate")
-const imgs = looks.children
-for(let i; i<= number; i++){
-    imgs.array.forEach(img => {
-        img.style.backgroundColor = "aqua"
-    });
+
+if(which === "p"){
+const prints = document.getElementById("print-rate")
+const im = prints.getElementsByTagName('img')
+const imgs = Array.from(im)
+imgs.forEach((el)=>
+{
+    el.style.backgroundColor = "none"
+})
+for(let i = 1; i<= number; i++){
+ imgs[i - 1].style.backgroundColor = "rgba(111, 201, 253, 0.815)"
 }
+pVote = number
 }
-if(which === c){
-const looks = document.getElementById("looks-rate")
-const imgs = looks.children
-for(let i; i<= number; i++){
-    imgs.array.forEach(img => {
-        img.style.backgroundColor = "aqua"
-    });
-}
-}
-const print = document.getElementById("print-rate")
+if(which === "c"){
 const cool = document.getElementById("cool-rate")
+const im = cool.getElementsByTagName('img')
+const imgs = Array.from(im)
+imgs.forEach((el)=>
+{
+    el.style.backgroundColor = "none"
+})
+for(let i = 1; i<= number; i++){
+        
+        imgs[i - 1].style.backgroundColor = "rgba(111, 201, 253, 0.815)"
+
 }
+pVote = number
+}
+}
+
+
+document.getElementById("vote").addEventListener('click', async (e)=>{
+    e.preventDefault()
+
+    try {
+
+const prompt = document.getElementById("prompt").value
+  const response = await fetch("/vote-log", {
+  method: "POST",
+  body: JSON.stringify({prompt, dae}),
+  headers: {'Content-Type': 'application/json'},
+}
+)
+
+  const responseO = await fetch("/leaderboard", {
+  method: "POST",
+  body: JSON.stringify({prompt, dae}),
+  headers: {'Content-Type': 'application/json'},
+}
+)
+} catch (error) {
+    console.log(error)
+}
+
+})
 </script>
 </html>
